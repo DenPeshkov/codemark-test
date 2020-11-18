@@ -1,4 +1,5 @@
 package com.github.DenPeshkov.user;
 
-public interface UserRepository {
-}
+import org.springframework.data.repository.CrudRepository;
+
+public interface UserRepository extends CrudRepository<User, String> {}
