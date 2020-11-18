@@ -4,12 +4,20 @@ spring:
     driverClassName: org.h2.Driver
     username: root
     password: root
-
+    platform: h2
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
-      ddl-auto: create-drop
-
+      ddl-auto: none
   h2:
     console:
       enabled: true
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+        type: TRACE
+  file:
+    name: src/main/resources/hibernate.log
