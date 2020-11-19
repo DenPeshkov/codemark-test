@@ -1,5 +1,6 @@
 package com.github.DenPeshkov.user.exception;
 
+import javax.persistence.EntityExistsException;
 import javax.persistence.EntityNotFoundException;
 
 public class UserDoesntExistException extends EntityNotFoundException {
