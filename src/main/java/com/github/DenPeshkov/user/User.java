@@ -61,6 +61,11 @@ public class User {
     this.roles = roles;
   }
 
+  public void addRoles(Set<Role> roles) {
+    this.roles.addAll(roles);
+    roles.forEach(role -> role.getUsers().add(this));
+  }
+
   public void addRole(Role role) {
     roles.add(role);
     role.getUsers().add(this);
@@ -71,12 +76,17 @@ public class User {
     role.getUsers().remove(this);
   }
 
+  public void removeRoles(Set<Role> roles) {
+    this.roles.removeAll(roles);
+    roles.forEach(role -> role.getUsers().remove(this));
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     User user = (User) o;
-    return getLogin().equals(user.getLogin());
+    return Objects.equals(getLogin(), user.getLogin());
   }
 
   @Override
