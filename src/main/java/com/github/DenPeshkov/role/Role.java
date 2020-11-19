@@ -13,6 +13,7 @@ public class Role {
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
 
+  @Column(unique = true)
   private String name;
 
   @ManyToMany(mappedBy = "roles")
@@ -53,7 +54,7 @@ public class Role {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     Role role = (Role) o;
-    return getId().equals(role.getId());
+    return Objects.equals(getId(), role.getId());
   }
 
   @Override
